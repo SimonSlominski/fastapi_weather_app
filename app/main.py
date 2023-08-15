@@ -46,22 +46,23 @@ def get_weather_forecasts(latitude, longitude):
         min_temps = data['daily']['temperature_2m_min']
         rain_sums = data['daily']['rain_sum']
         wind_speeds = data['daily']['windspeed_10m_max']
-        # todo classification
 
         # Create new JSON object
         forecast_json = {}
         for i in range(len(dates)):
-
+            classification = classify_weather(rain_sums[i], wind_speeds[i])
             forecast_json[dates[i]] = {
                 "min_temp": min_temps[i],
                 "max_temp": max_temps[i],
                 "rain_sum": rain_sums[i],
                 "wind_speed": wind_speeds[i],
+                "classification": classification
             }
 
         return forecast_json
-    except:
-        pass
+    except Exception as e:
+        print("Error:", e)
+        return {"Error": "Failed to fetch weather data."}
 
 
 def get_coordinates(city):

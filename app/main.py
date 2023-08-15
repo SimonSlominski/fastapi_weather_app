@@ -23,10 +23,33 @@ def get_weather_forecasts(latitude, longitude):
         "forecast_days": 5
     }
 
-    response = requests.get(url, params=params)
-    data = response.json()
-    print(data)
+    try:
+        response = requests.get(url, params=params)
+        response.raise_for_status()
+        data = response.json()
 
+        # Extract required data from the response
+        dates = data['daily']['time']
+        max_temps = data['daily']['temperature_2m_max']
+        min_temps = data['daily']['temperature_2m_min']
+        rain_sums = data['daily']['rain_sum']
+        wind_speeds = data['daily']['windspeed_10m_max']
+        # todo classification
+
+        # Create new JSON object
+        forecast_json = {}
+        for i in range(len(dates)):
+
+            forecast_json[dates[i]] = {
+                "min_temp": min_temps[i],
+                "max_temp": max_temps[i],
+                "rain_sum": rain_sums[i],
+                "wind_speed": wind_speeds[i],
+            }
+
+        return forecast_json
+    except:
+        pass
 
 
 def get_coordinates(city):

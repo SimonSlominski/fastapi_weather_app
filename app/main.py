@@ -21,8 +21,8 @@ def get_coordinates(city):
     try:
         location = geolocator.geocode(city)
         if location:
-            latitude = location.latitude
-            longitude = location.longitude
+            latitude = round(location.latitude, 2)
+            longitude = round(location.longitude, 2)
             return latitude, longitude
         else:
             return None

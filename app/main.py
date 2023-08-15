@@ -13,6 +13,17 @@ app = FastAPI()
 def get_forecasts(city: str):
     pass
 
+def classify_weather(rain_sum, wind_speed):
+    if rain_sum >= 5 and wind_speed >= 25:
+        return "stormy"
+    elif rain_sum >= 5:
+        return "rainy"
+    elif wind_speed >= 25:
+        return "windy"
+    else:
+        return "sunny"
+
+
 def get_weather_forecasts(latitude, longitude):
     url = f"https://api.open-meteo.com/v1/forecast"
     params = {

@@ -1,7 +1,8 @@
 from fastapi import FastAPI
 import requests
-
 from geopy.geocoders import Nominatim
+
+from config import RAIN_THRESHOLD, WIND_THRESHOLD
 
 
 app = FastAPI()
@@ -14,11 +15,11 @@ def get_forecasts(city: str):
     pass
 
 def classify_weather(rain_sum, wind_speed):
-    if rain_sum >= 5 and wind_speed >= 25:
+    if rain_sum >= RAIN_THRESHOLD and wind_speed >= WIND_THRESHOLD:
         return "stormy"
-    elif rain_sum >= 5:
+    elif rain_sum >= RAIN_THRESHOLD:
         return "rainy"
-    elif wind_speed >= 25:
+    elif wind_speed >= WIND_THRESHOLD:
         return "windy"
     else:
         return "sunny"

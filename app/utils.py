@@ -5,6 +5,9 @@ from app.config import RAIN_THRESHOLD, WIND_THRESHOLD
 
 
 def get_coordinates(city):
+    if city is None:
+        return None
+
     geolocator = Nominatim(user_agent="get_coordinates")
 
     try:

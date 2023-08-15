@@ -1,0 +1,17 @@
+# Compiled Python files
+__pycache__/
+*.py[cod]
+
+# Virtual environment
+venv/
+env/
+
+# IDE-specific files (modify this based on your IDE)
+.idea/
+
+# Dependency directories
+__pypackages__/
+env/
+
+# Mac OS X generated files
+.DS_Store

@@ -8,7 +8,7 @@
 - [Getting Started](#getting_started)
 
 
-## 🧐 About <a name = "about"></a>
+## 🧐 About <a name="about"></a>
 <p align="left"> 
 This FastAPI application is specifically designed for a friend's company and implemented for their internal use. The Weather Forecast API is part of their initiative to leverage weather data to better anticipate customer demand and optimise their operations.<br> 
 
@@ -23,7 +23,7 @@ ___
 The API is simple to use: send a GET request with the city's name, and you will receive the daily weather forecasts for the next 5 days. The forecast includes essential weather data such as minimum and maximum temperature, rain amount, wind speed, and a classification of the weather conditions (e.g., stormy, rainy, windy or sunny).
 ___
 
-## 🏁 Getting Started
+## 🏁 Getting Started <a name="getting_started"></a>
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
 
 ### Prerequisites

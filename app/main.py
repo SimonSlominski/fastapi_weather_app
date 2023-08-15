@@ -1,6 +1,6 @@
 from fastapi import FastAPI, HTTPException
 
-from utils import get_coordinates, get_weather_forecasts
+from app.utils import get_coordinates, get_weather_forecasts
 
 
 app = FastAPI()
